@@ -29,7 +29,7 @@ export default {
     font-size: 1em;
     position: relative;
     padding: 0px 30px;
-    &::after {
+    // &::after {
       // content: "";
       // position: absolute;
       // width: 100%;
@@ -37,7 +37,7 @@ export default {
       // bottom: 0px;
       // height: 1px;
       // border-bottom: 1px solid #9d9d99;
-    }
+    // }
   }
   .m-panel-content {
     padding: 10px 30px;

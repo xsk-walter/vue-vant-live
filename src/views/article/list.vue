@@ -24,47 +24,41 @@
 </template>
 
 <script>
-import pageMixin from "@/utils/mixins/page";
+import pageMixin from '@/utils/mixins/page'
 
-import { List, Cell, PullRefresh, Search } from "vant";
 export default {
   mixins: [pageMixin],
   // 数据列表
   data() {
     return {
       list: [],
-      search: { text: "", obj: { a: 1 } },
-    };
+      search: { text: '', obj: { a: '' } },
+    }
   },
-  components: {
-    [List.name]: List,
-    [Cell.name]: Cell,
-    [PullRefresh.name]: PullRefresh,
-    [Search.name]: Search,
-  },
+
   mounted() {
-    console.log(this.$route.query);
+    console.log(this.$route.query)
   },
   methods: {
     // 搜索
     searchSubmit() {
       // 调用混合搜索
-      this._searchData();
+      this._searchData()
     },
     // 模拟后端分页
     getData(requestParams) {
       return new Promise((res, rej) => {
-        let params = requestParams;
+        let params = requestParams
         if (!params) {
           params = {
             page: 1,
             size: 10,
             search: {},
-          };
+          }
         }
-        console.log(params);
+        console.log(params)
         setTimeout(() => {
-          const arr = [];
+          const arr = []
           for (
             let i = (params.page - 1) * params.size;
             i < params.page * params.size;
@@ -72,9 +66,9 @@ export default {
           ) {
             arr.push({
               id: i,
-              title: "【新增" + i + "】 标题",
-              content: "搜索对象为" + JSON.stringify(params.search),
-            });
+              title: '【新增' + i + '】 标题',
+              content: '搜索对象为' + JSON.stringify(params.search),
+            })
           }
           res({
             code: 200,
@@ -84,24 +78,24 @@ export default {
               list: arr,
               total: 30, // 设置30就加载完成
             },
-          });
-        }, 500);
-      });
+          })
+        }, 500)
+      })
     },
-    // 数据请求(没错就是这么少的代码)
+    // 数据请求
     async _getList() {
       // 根据实际情况修改自己修改key
       const result = await this.getData({
         page: this.page, // 传入页码
         size: this.size, // 传入每页条数
         search: this.search, // 传入搜索的对象
-      });
-      this.total = result.data.total;
+      })
+      this.total = result.data.total
       result.data.list.map((item) => {
-        this.list.push(item);
-      });
+        this.list.push(item)
+      })
     },
   },
-};
+}
 </script>
 <style scoped lang="scss"></style>

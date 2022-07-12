@@ -9,16 +9,11 @@ const routes = {
   component: MidRouterView,
   children: [
     {
-      path: "article",
-      name: "article",
-      component: () => import("@/views/article/article.vue"),
-    },
-    {
       path: "list",
       name: "list",
       meta: {
         title: "列表 demo",
-        hideHeader: false,
+        hideHeader: true,
       },
       component: List,
     },

@@ -21,6 +21,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.content {
-}
+// .content {
+// }
 </style>

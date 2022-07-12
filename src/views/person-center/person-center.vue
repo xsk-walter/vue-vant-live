@@ -1,12 +1,19 @@
 <template>
   <div class="wrapper">
     <van-row type="flex" justify="center">
-      <van-image
+      <!-- <van-image
         round
         width="40vw"
         height="40vw"
         :src="userInfo.avatar"
         fit="cover"
+      /> -->
+      <van-image
+        round
+        width="40vw"
+        height="40vw"
+        :src="require('@/assets/logo.png')"
+        fit="contain"
       />
     </van-row>
     <van-row type="flex" justify="center">
@@ -28,7 +35,7 @@ export default {
   components: {},
   computed: {
     userInfo() {
-      return $store.getters["user/info"] || {};
+      return $store.getters["user/info"] || {avatar: 'https://cn.vuejs.org/images/logo.svg', name: 'Lucky'} 
     },
   },
   methods: {

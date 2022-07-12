@@ -67,3 +67,77 @@ VUE_APP_PUBLIC_PATH='/vue-vant-base'
 VUE_APP_API_PREFIX='http://wwww.xxx.com/api'
 ```
 
+
+```
+// draggable 插件使用
+<draggable
+    tag="van-grid"
+    :list="myArray"
+    @end="onEndCallback"
+    :disabled="false"
+    :component-data="{
+    props: { 'column-num': 3 },
+    }"
+>
+    <van-grid-item
+    v-for="item in myArray"
+    :key="item.id"
+    icon="photo-o"
+    :text="item.name"
+    ></van-grid-item>
+</draggable>
+
+ myArray: [
+    { name: "1号彩笔", id: 1 },
+    { name: "2号彩笔", id: 2 },
+    { name: "3号彩笔", id: 3 },
+    { name: "4号彩笔", id: 4 },
+    { name: "5号彩笔", id: 5 },
+    { name: "6号彩笔", id: 6 },
+],
+
+
+onEndCallback(evt) {
+    console.log(evt);
+    console.log(this.myArray);
+},
+```
+
+```
+// svg - iconClass 为文件名称
+ <svg-icon iconClass="404"></svg-icon>
+```
+
+```
+// common.scss
+// 声明
+$common-color: green;
+
+// 使用
+<div class="theme">scss全局变量颜色</div>
+
+.theme {
+  color: $common-color;
+}
+```
+
+```
+// 图片上传
+async uploadImage() {
+    const formData = new FormData();
+    formData.append("id", "8888");
+    const fileArr = this.fileList.map((item) => item.file);
+    // 此方法会改变原数组,console.log(formData)是看不到效果的必须在请求体里面才能看到
+    formatArrToFormData(formData, "images", fileArr);
+    const result = await $api.test.uploadImage(formData);
+    console.log(result);
+}
+```
+
+```
+// 块级组件加载
+ <block-loading :loading="blockLoading">
+    ...
+ </block-loading>
+ blockLoading : true、false 控制
+```

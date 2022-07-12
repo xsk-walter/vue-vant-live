@@ -1,6 +1,5 @@
 /***
  * jssdk封装
- * @author maybe
  */
 // var wxJsSdk = require("@/assets/js/jssdk");
 import wxJsSdk from "@/assets/js/jssdk"

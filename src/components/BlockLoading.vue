@@ -14,12 +14,12 @@
 
 <script>
 export default {
-  name: "BlockLoading",
+  name: 'BlockLoading',
   props: {
     loading: { type: Boolean, default: false },
-    loadingBgColor: { type: String, default: "#f7f8fa" },
+    loadingBgColor: { type: String, default: '#f7f8fa' },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
